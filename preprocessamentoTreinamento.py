@@ -10,9 +10,9 @@ from tensorflow.keras.metrics import Precision, Recall
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
-ANC_PATH = '/home/carlos/Documentos/faceRecognition/FaceRecognition/data/anchor'
-POS_PATH = '/home/carlos/Documentos/faceRecognition/FaceRecognition/data/positive'
-NEG_PATH = '/home/carlos/Documentos/faceRecognition/FaceRecognition/data/negative'
+ANC_PATH = '/home/carlos/Documentos/reconhecimentoFace/FaceRecognition/data/anchor'
+POS_PATH = '/home/carlos/Documentos/reconhecimentoFace/FaceRecognition/data/positive'
+NEG_PATH = '/home/carlos/Documentos/reconhecimentoFace/FaceRecognition/data/negative'
 
 # Use barras invertidas simples para formar o caminho
 anchor = tf.data.Dataset.list_files(ANC_PATH + '/*.jpg').take(3000)
@@ -154,7 +154,7 @@ if user_input == '1':
     binary_cross_loss = tf.losses.BinaryCrossentropy()
     opt = tf.keras.optimizers.Adam(1e-4) # 0.0001
     #Estabelecendo Checkpoints de treinamento
-    checkpoint_dir = '/home/carlos/Documentos/faceRecognition/FaceRecognition/training_checkpoints'
+    checkpoint_dir = '/home/carlos/Documentos/reconhecimentoFace/FaceRecognition/training_checkpoints'
     checkpoint_prefix = os.path.join(checkpoint_dir, 'ckpt')
     checkpoint = tf.train.Checkpoint(opt=opt, siamese_model=siamese_model)
 

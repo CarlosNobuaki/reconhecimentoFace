@@ -4,6 +4,7 @@ import uuid
 import cv2
 import numpy as np
 
+
 # Método de augmentation
 def data_aug(img):
     data = []
@@ -39,3 +40,6 @@ elif choice == 'p':
     apply_augmentation_to_directory(POS_PATH)
 else:
     print("Escolha inválida. Por favor, digite 'a' para ANC_PATH ou 'p' para POS_PATH.")
+
+
+

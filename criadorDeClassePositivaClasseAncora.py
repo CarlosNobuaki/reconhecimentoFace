@@ -2,14 +2,13 @@ import uuid
 import os
 import cv2
 
-ANC_PATH = '/home/carlos/Documentos/faceRecognition/FaceRecognition/data/anchor'
+ANC_PATH = '/home/carlos/Documentos/reconhecimentoFace/FaceRecognition/data/anchor'
 # Aplicando identificação única nos arquivos âncora
 os.path.join(ANC_PATH, '{}.jpg'.format(uuid.uuid1()))
 
 
 #Estabelecendo conexão com a câmera
-ANC_PATH = '/home/carlos/Documentos/faceRecognition/FaceRecognition/data/anchor'
-POS_PATH = '/home/carlos/Documentos/faceRecognition/FaceRecognition/data/positive'
+POS_PATH = '/home/carlos/Documentos/reconhecimentoFace/FaceRecognition/data/positive'
 # Abre a câmera e faz a cptura de vídeo usando a indexação (0)
 # Se precisar encontrar o index da câmera, rodar o código: 'procuraCameraIndex.py'
 cap = cv2.VideoCapture(0)

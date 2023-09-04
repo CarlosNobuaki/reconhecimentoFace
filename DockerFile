@@ -1,0 +1,32 @@
+# Use a imagem base do Python 3.8
+FROM python:3.8
+
+# Informações do autor
+LABEL maintainer='carlos.nobuaki@ciag.org.br'
+
+# Defina o diretório de trabalho dentro do contêiner
+WORKDIR /FaceRecognition
+
+# Copie o conteúdo do diretório atual para o diretório de trabalho no contêiner
+COPY . .
+
+# Atualize o pip e instale as dependências
+RUN pip install --upgrade pip
+RUN apt-get update && apt-get install -y python3-pip
+RUN pip install -r requirements.txt
+
+# Instale o TensorFlow 2.7.0 e outras bibliotecas
+RUN pip install tensorflow==2.7.0 numpy matplotlib opencv-python-headless uuid
+
+# Comando padrão para iniciar o contêiner quando ele for executado
+CMD ["python3", "preprocessamentoTreinamento.py"]
+# Comando padrão para iniciar o contêiner quando ele for executado
+#CMD ["python3", "procuraCameraIndex.py"]
+# Comando padrão para iniciar o contêiner quando ele for executado
+#CMD ["python3", "imagesAugmentation.py"]
+# Comando padrão para iniciar o contêiner quando ele for executado
+#CMD ["python3", "criadorDePastas.py"]
+# Comando padrão para iniciar o contêiner quando ele for executado
+#CMD ["python3", "criadorDeClassePositivaClasseAncora.py"]
+# Comando padrão para iniciar o contêiner quando ele for executado
+#CMD ["python3", "chackGPUandTensorflow.py"]

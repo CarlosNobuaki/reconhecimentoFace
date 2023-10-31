@@ -15,9 +15,9 @@ POS_PATH = '/home/carlos/Documentos/reconhecimentoFace/FaceRecognition/data/posi
 NEG_PATH = '/home/carlos/Documentos/reconhecimentoFace/FaceRecognition/data/negative'
 
 # Use barras invertidas simples para formar o caminho
-anchor = tf.data.Dataset.list_files(ANC_PATH + '/*.jpg').take(3000)
-positive = tf.data.Dataset.list_files(POS_PATH + '/*.jpg').take(3000)
-negative = tf.data.Dataset.list_files(NEG_PATH + '/*.jpg').take(3000)
+anchor = tf.data.Dataset.list_files(ANC_PATH + '/*.jpg').take(300)
+positive = tf.data.Dataset.list_files(POS_PATH + '/*.jpg').take(300)
+negative = tf.data.Dataset.list_files(NEG_PATH + '/*.jpg').take(300)
 #Pré-processamento
 # Redimencionando tamanho das imagens para treinamento. O modelo de rede neural aceita imagens até 150x150. Nesse caso estamos redimensinando para 100x100
 def preprocess(file_path):
@@ -73,7 +73,7 @@ print(sam[2])
 # Treinamnento esta em 70% dos dados disponibilizados
 train_data = data.take(round(len(data)*.7))
 # Batch esta em 16
-train_data = train_data.batch(16)
+train_data = train_data.batch(8)
 # Carrega 8 quadros em memória antes de rodar o batch novamente
 train_data = train_data.prefetch(8)
 
@@ -82,7 +82,7 @@ train_data = train_data.prefetch(8)
 test_data = data.skip(round(len(data)*.7))
 test_data = test_data.take(round(len(data)*.3))
 # Batch esta em 16
-test_data = test_data.batch(16)
+test_data = test_data.batch(8)
 # Carrega 8 quadros em memória antes de rodar o batch novamente
 test_data = test_data.prefetch(8)
 

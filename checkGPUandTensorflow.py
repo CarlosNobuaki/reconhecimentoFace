@@ -8,5 +8,3 @@ if gpus:
         print("Nome da GPU:", gpu.name)
 else:
     print("Nenhuma GPU disponível.")
-
-    
